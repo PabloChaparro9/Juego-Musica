@@ -4,6 +4,12 @@ Este proyecto consiste en un juego en el cual se le presentará al usuario una e
 Una vez seleccionadas todas las respuestas podrá revelar la respuesta y comparar sus respuestas con la solución final.
 El usuario deberá poder seleccionar entre escalas mayores y menores para que se generen de forma aleatoria, una vez generada la nota raíz de la escala el usuario deberá completar con las notas pertenecientes de la escala presentada.
 
+Las opciones que el usuario podrá seleccionar son:
++ Escala mayor o Escala menor
++ Terceras
++ Quintas
++ Formar acordes
+
 El usuario deberá poder crearse una cuenta para poder guardar su progreso.
 Deberá poder ver estadísticas como:
 
