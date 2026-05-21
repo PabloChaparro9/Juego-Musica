@@ -7,8 +7,8 @@ El usuario deberá poder seleccionar entre escalas mayores y menores para que se
 El usuario deberá poder crearse una cuenta para poder guardar su progreso.
 Deberá poder ver estadísticas como:
 
-.Ejercicios completados
-.Respuestas correctas
-.Respuestas incorrectas
+*Ejercicios completados
+*Respuestas correctas
+*Respuestas incorrectas
 
 El usuario deberá poder modificar su nombre de usuario y eliminar su cuenta cuando lo desee.
