@@ -18,3 +18,5 @@ Deberá poder ver estadísticas como:
 * Respuestas incorrectas
 
 El usuario deberá poder modificar su nombre de usuario y eliminar su cuenta cuando lo desee.
+
+Para realizar este proyecto se utilizará HTML, CSS y JavaScript para el diseño de la página. El manejo del BackEnd se hará con NodeJs, conforme avance el proyecto se decidirá si se utilizará una base de datos Relacional o No relacional.
