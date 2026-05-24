@@ -8,9 +8,15 @@
     --var-Wrong-Answer-Color: #FF5050;
     font-family: "Inter", sans-serif;
     font-size: 24px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 body{
     background-color: var(--var-BG-Color);
+}
+button{
+    border: none;
 }
 .mainContainer{
     display: flex;
@@ -43,18 +49,25 @@ body{
     margin: 10px 0 10px 0;
     border-radius: 25px;
 }
+.menuOption:focus{
+    background-color: var(--var-Secondary-Color);
+}
 .arrowContainer{
     width: 28px;
     height: 28px;
     margin-right: 16px;
 }
-span{
+.buttonText{
+    display: flex;
+    align-self: left;
     width: 100%;
+    font-size: 24px;
 }
 .helpIconContainer{
     display: flex;
     width: 36px;
     height: 36px;
+    margin-top: 10px;
 }
 img{
     width: 100%;
@@ -73,7 +86,7 @@ img{
     margin: 0 7% 0 7%;
 }
 .textAnswer{
-    font-size: 48px;
+    font-size: 2em;
 }
 .card{
     display: flex;
@@ -110,6 +123,7 @@ img{
     width: 53px;
     height: 48px;
     border-radius: 10px;
+    font-size: 1em;
 }
     .correctAnswer{
         background-color: var(--var-Correct-Answer-Color);
