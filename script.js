@@ -1,25 +1,33 @@
 const SelectEscalaHTML = document.getElementById("selectEscala");
 const NotaAcordeHTML = document.getElementById("notaAcorde");
 let intervalos = ['C','D','E','F','G','A','B'];
+let respuestaFinal = ['C','','','','','','']
+let tipoEscala = "Escala Mayor";
+let notasAcordes = "Notas";
 const CambiarEscala = () => {
     if(SelectEscalaHTML.innerHTML=="Escala Mayor"){
         SelectEscalaHTML.innerHTML = "Escala Menor";
+        tipoEscala = "Escala Menor"
     }else{
         SelectEscalaHTML.innerHTML = "Escala Mayor";
+        tipoEscala = "Escala Mayor"
     }
 }
 const CambiarNotaAcorde = () => {
     if(NotaAcordeHTML.innerHTML=="Notas"){
         NotaAcordeHTML.innerHTML = "Acordes";
+        notasAcordes = "Acordes";
     }else{
         NotaAcordeHTML.innerHTML = "Notas";
+        notasAcordes = "Notas";
     }
 }
-const CambiarGrado = (a) =>{
+const CambiarGrado = (a,n) =>{
     let b;
     let nota;
     b = DetectarIntervalo(a);
     nota = DefinirNota(a);
+    respuestaFinal[n] = nota;
     const CambiarAcordeHTML = document.getElementById(b);
     CambiarAcordeHTML.innerHTML = nota;
 }
@@ -120,4 +128,17 @@ const DetectarIntervalo = (c) =>{
         default:
             break;
     }
+}
+const ObtenerRespuesta = () =>{
+    intervalos.forEach((element,index) => {
+        if(element == respuestaFinal[index]){
+            console.log(element)
+            console.log(intervalos[index])
+        }else{
+            console.log("Algo salio mal con el intervalo: "+index);
+        }
+    });
+    console.log(tipoEscala)
+    console.log(notasAcordes)
+    console.log(respuestaFinal)
 }
