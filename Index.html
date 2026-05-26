@@ -12,11 +12,9 @@
         <div class="menu">
             <div class="options">
                 <button class="menuOption"><span class="buttonText">Generar Escala</span></button>
-                <div class="buttonsContainer">
-                    <button class="menuOption" onclick="CambiarEscala()">
-                        <span class="buttonText" id="selectEscala">Escala Mayor</span><div class="arrowContainer"><img src="./assets/caret-down-fill.svg" alt="Icono de flecha hacia abajo del menu desplegable"></div>
-                    </button>
-                </div>
+                <button class="menuOption" onclick="CambiarEscala()">
+                    <span class="buttonText" id="selectEscala">Escala Mayor</span><div class="arrowContainer"><img src="./assets/caret-down-fill.svg" alt="Icono de flecha hacia abajo del menu desplegable"></div>
+                </button>
                 <button class="menuOption" onclick="CambiarNotaAcorde()"><span class="buttonText" id="notaAcorde">Notas</span><div class="arrowContainer"><img src="./assets/caret-down-fill.svg" alt="Icono de flecha hacia abajo del menu desplegable"></div></button>
             </div>
             <button class="helpIconContainer"><img src="./assets/question-circle.svg" alt="Icono de ayuda"></button>
@@ -25,50 +23,50 @@
             <div class="card">
                 <div class="chord"><span id="gradoI">C</span></div>
                 <div class="chordOptions">
-                    <button class="chordOptionContainer" onclick="CambiarGrado('Im')">C</button>
-                    <button class="chordOptionContainer" onclick="CambiarGrado('IM')">C#</button>
+                    <button class="chordOptionContainer" onclick="CambiarGrado('Im',0)">C</button>
+                    <button class="chordOptionContainer" onclick="CambiarGrado('IM',0)">C#</button>
                 </div>
             </div>
             <div class="card">
                 <div class="chord"><span id="gradoII"></span></div>
                 <div class="chordOptions">
-                    <button class="chordOptionContainer" onclick="CambiarGrado('IIm')">D</button>
-                    <button class="chordOptionContainer" onclick="CambiarGrado('IIM')">D#</button>
+                    <button class="chordOptionContainer" onclick="CambiarGrado('IIm',1)">D</button>
+                    <button class="chordOptionContainer" onclick="CambiarGrado('IIM',1)">D#</button>
                 </div>
             </div>
             <div class="card">
                 <div class="chord"><span id="gradoIII"></span></div>
                 <div class="chordOptions">
-                    <button class="chordOptionContainer" onclick="CambiarGrado('IIIm')">E</button>
-                    <button class="chordOptionContainer" onclick="CambiarGrado('IIIM')">E#</button>
+                    <button class="chordOptionContainer" onclick="CambiarGrado('IIIm',2)">E</button>
+                    <button class="chordOptionContainer" onclick="CambiarGrado('IIIM',2)">E#</button>
                 </div>
             </div>
             <div class="card">
                 <div class="chord"><span id="gradoIV"></span></div>
                 <div class="chordOptions">
-                    <button class="chordOptionContainer" onclick="CambiarGrado('IVm')">F</button>
-                    <button class="chordOptionContainer" onclick="CambiarGrado('IVM')">F#</button>
+                    <button class="chordOptionContainer" onclick="CambiarGrado('IVm',3)">F</button>
+                    <button class="chordOptionContainer" onclick="CambiarGrado('IVM',3)">F#</button>
                 </div>
             </div>
             <div class="card">
                 <div class="chord"><span id="gradoV"></span></div>
                 <div class="chordOptions">
-                    <button class="chordOptionContainer" onclick="CambiarGrado('Vm')">G</button>
-                    <button class="chordOptionContainer" onclick="CambiarGrado('VM')">G#</button>
+                    <button class="chordOptionContainer" onclick="CambiarGrado('Vm',4)">G</button>
+                    <button class="chordOptionContainer" onclick="CambiarGrado('VM',4)">G#</button>
                 </div>
             </div>
             <div class="card">
                 <div class="chord"><span id="gradoVI"></span></div>
                 <div class="chordOptions">
-                    <button class="chordOptionContainer" onclick="CambiarGrado('VIm')">A</button>
-                    <button class="chordOptionContainer" onclick="CambiarGrado('VIM')">A#</button>
+                    <button class="chordOptionContainer" onclick="CambiarGrado('VIm',5)">A</button>
+                    <button class="chordOptionContainer" onclick="CambiarGrado('VIM',5)">A#</button>
                 </div>
             </div>
             <div class="card">
                 <div class="chord"><span id="gradoVII"></span></div>
                 <div class="chordOptions">
-                    <button class="chordOptionContainer" onclick="CambiarGrado('VIIm')">B</button>
-                    <button class="chordOptionContainer" onclick="CambiarGrado('VIIM')">B#</button>
+                    <button class="chordOptionContainer" onclick="CambiarGrado('VIIm',6)">B</button>
+                    <button class="chordOptionContainer" onclick="CambiarGrado('VIIM',6)">B#</button>
                 </div>
             </div>
         </div>
@@ -77,23 +75,23 @@
         <div class="card">
             <div class="chord"><span class="textAnswer">C</span></div>
         </div>
-        <div class="card wrongAnswer">
-            <div class="chord"><span class="textAnswer">C</span></div>
+        <div class="card">
+            <div class="chord"><div class="questionMarcContainer"><img src="./assets/question-lg.svg" alt="Símbolo de interrogación"></div></div>
         </div>
         <div class="card">
-            <div class="chord"><span class="textAnswer">C</span></div>
-        </div>
-        <div class="card correctAnswer">
-            <div class="chord"><span class="textAnswer">C</span></div>
+            <div class="chord"><div class="questionMarcContainer"><img src="./assets/question-lg.svg" alt="Símbolo de interrogación"></div></div>
         </div>
         <div class="card">
-            <div class="chord"><span class="textAnswer">C</span></div>
+            <div class="chord"><div class="questionMarcContainer"><img src="./assets/question-lg.svg" alt="Símbolo de interrogación"></div></div>
         </div>
         <div class="card">
-            <div class="chord"><span class="textAnswer">C</span></div>
+            <div class="chord"><div class="questionMarcContainer"><img src="./assets/question-lg.svg" alt="Símbolo de interrogación"></div></div>
         </div>
         <div class="card">
-            <div class="chord"><span class="textAnswer">C</span></div>
+            <div class="chord"><div class="questionMarcContainer"><img src="./assets/question-lg.svg" alt="Símbolo de interrogación"></div></div>
+        </div>
+        <div class="card">
+            <div class="chord"><div class="questionMarcContainer"><img src="./assets/question-lg.svg" alt="Símbolo de interrogación"></div></div>
         </div>
     </div>
     <div class="buttonContainer">

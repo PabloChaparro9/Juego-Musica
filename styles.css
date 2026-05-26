@@ -6,6 +6,7 @@
     --var-Terciary-Color: #F7EFE6;
     --var-Correct-Answer-Color: #B8FFAE;
     --var-Wrong-Answer-Color: #FF5050;
+    --var-Grey-Color: #E3E3E3;
     font-family: "Inter", sans-serif;
     font-size: 24px;
     box-sizing: border-box;
@@ -48,13 +49,6 @@ button{
     background-color: var(--var-Primary-Color);
     width: 220px;
     height: 40px;
-    border-radius: 25px;
-}
-.buttonsContainer{
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    background-color: var(--var-Primary-Color);
     border-radius: 25px;
     margin: 10px 0;
 }
@@ -143,6 +137,10 @@ img{
 }
 .wrongAnswer{
     background-color: var(--var-Wrong-Answer-Color);
+}
+.questionMarcContainer{
+    width: 54px;
+    height: 54px;
 }
 .comprobarRespuesta{
     justify-content: center;
