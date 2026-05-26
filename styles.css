@@ -89,7 +89,7 @@ img{
     width: 86%;
     margin: 0 7% 0 7%;
 }
-.textAnswer{
+.textAnswer,.correctAnswer,.wrongAnswer{
     font-size: 2em;
 }
 .card{

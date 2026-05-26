@@ -1,10 +1,11 @@
 const SelectEscalaHTML = document.getElementById("selectEscala");
 const NotaAcordeHTML = document.getElementById("notaAcorde");
 let intervalos = ['C','D','E','F','G','A','B'];
-let respuestaFinal = ['C','','','','','','']
+let respuestaFinal = [intervalos[0],'','','','','','']
 let grados= ['chordI','chordII','chordIII','chordIV','chordV','chordVI','chordVII'];
 let tipoEscala = "Escala Mayor";
 let notasAcordes = "Notas";
+document.getElementById(grados[0]).firstChild.innerHTML=intervalos[0];
 const CambiarEscala = () => {
     if(SelectEscalaHTML.innerHTML=="Escala Mayor"){
         SelectEscalaHTML.innerHTML = "Escala Menor";
@@ -168,7 +169,15 @@ const ObtenerRespuesta = () =>{
             bandera = bandera+1
         }
     })
-        respuestaFinal.forEach((intervalo,index)=>{
+    respuestaFinal.forEach((intervalo,index)=>{
+        if(respuestaFinal[index]==''){
+            const respuestaHTML = document.getElementById(grados[index]);
+            respuestaHTML.innerHTML = `<span class="textAnsers">X</span>`;
+            if(respuestaHTML.parentElement.classList.contains('correctAnswer')){
+                respuestaHTML.parentElement.classList.toggle('correctAnswer')
+            }
+            respuestaHTML.parentElement.classList.add('wrongAnswer')
+        }else{
             if(intervalo==intervalos[index]){
                 const respuestaHTML = document.getElementById(grados[index]);
                 respuestaHTML.innerHTML = `<span class="textAnsers">${intervalo}</span>`;
@@ -183,7 +192,7 @@ const ObtenerRespuesta = () =>{
                     respuestaHTML.parentElement.classList.toggle('correctAnswer')
                 }
                 respuestaHTML.parentElement.classList.add('wrongAnswer')
-
             }
-        })
+        }
+    })
 }
