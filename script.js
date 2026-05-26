@@ -129,26 +129,29 @@ const DetectarIntervalo = (c) =>{
             break;
     }
 }
+//Recordar agregar notas para continuar el trabajo donde quedo.
+/* Las respuestas se deben escribir en las etiquetas div que tienen como id chordX reemplazando su innerHTML con un span con clase textAnswer para aplicar el estilo y el acorde correspondiente. Si las respuestas son correctas se agregara la clase correctAnswer y si son incorrectas wrongAnswer para aplicar estilos diferentes. Se debe imprimir el intervalo en la card respuesta.*/
 const ObtenerRespuesta = () =>{
-    let bandera = false;
-    let respuestaCorrecta = false;
+    let bandera = 0;
+    let respuestaCorrecta = 0;
     respuestaFinal.forEach((intervalo,index)=>{
         if(intervalo==''){
-            console.log('Falta el intervalo '+index);
-            bandera = true
+            console.log('Falta el intervalo '+(index+1));
+            bandera = bandera+1
         }
     })
-    if(!bandera){
+    if(bandera == 0){
         intervalos.forEach((element,index) => {
         if(element != respuestaFinal[index]){
             console.log("Algo salio mal con el intervalo: "+(index+1));
-            respuestaCorrecta = true;
+            respuestaCorrecta = respuestaCorrecta+1;
         }
-        });
+    });
     }else{
         console.log('faltan intervalos');
+        respuestaCorrecta = respuestaCorrecta+1;
     }
-    if(!respuestaCorrecta){
+    if(respuestaCorrecta == 0){
         console.log('Respuesta Correcta')
     }
 }
