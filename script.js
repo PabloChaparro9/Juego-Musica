@@ -130,15 +130,25 @@ const DetectarIntervalo = (c) =>{
     }
 }
 const ObtenerRespuesta = () =>{
-    intervalos.forEach((element,index) => {
-        if(element == respuestaFinal[index]){
-            console.log(element)
-            console.log(intervalos[index])
-        }else{
-            console.log("Algo salio mal con el intervalo: "+index);
+    let bandera = false;
+    let respuestaCorrecta = false;
+    respuestaFinal.forEach((intervalo,index)=>{
+        if(intervalo==''){
+            console.log('Falta el intervalo '+index);
+            bandera = true
         }
-    });
-    console.log(tipoEscala)
-    console.log(notasAcordes)
-    console.log(respuestaFinal)
+    })
+    if(!bandera){
+        intervalos.forEach((element,index) => {
+        if(element != respuestaFinal[index]){
+            console.log("Algo salio mal con el intervalo: "+(index+1));
+            respuestaCorrecta = true;
+        }
+        });
+    }else{
+        console.log('faltan intervalos');
+    }
+    if(!respuestaCorrecta){
+        console.log('Respuesta Correcta')
+    }
 }
