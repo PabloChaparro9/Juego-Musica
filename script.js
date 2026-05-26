@@ -2,6 +2,7 @@ const SelectEscalaHTML = document.getElementById("selectEscala");
 const NotaAcordeHTML = document.getElementById("notaAcorde");
 let intervalos = ['C','D','E','F','G','A','B'];
 let respuestaFinal = ['C','','','','','','']
+let grados= ['chordI','chordII','chordIII','chordIV','chordV','chordVI','chordVII'];
 let tipoEscala = "Escala Mayor";
 let notasAcordes = "Notas";
 const CambiarEscala = () => {
@@ -129,6 +130,34 @@ const DetectarIntervalo = (c) =>{
             break;
     }
 }
+const ComprobarIntervalo = (c) =>{
+    switch (c) {
+        case intervalos[0]:
+            return 'gradoI'
+            break;
+        case intervalos[1]:
+            return 'gradoII'
+            break;
+        case intervalos[2]:
+            return 'gradoIII'
+            break;
+        case intervalos[3]:
+            return 'gradoIV'
+            break;
+        case intervalos[4]:
+            return 'gradoV'
+            break;
+        case intervalos[5]:
+            return 'gradoVI'
+            break;
+        case intervalos[6]:
+            return 'gradoVII'
+            break;
+    
+        default:
+            break;
+    }
+}
 //Recordar agregar notas para continuar el trabajo donde quedo.
 /* Las respuestas se deben escribir en las etiquetas div que tienen como id chordX reemplazando su innerHTML con un span con clase textAnswer para aplicar el estilo y el acorde correspondiente. Si las respuestas son correctas se agregara la clase correctAnswer y si son incorrectas wrongAnswer para aplicar estilos diferentes. Se debe imprimir el intervalo en la card respuesta.*/
 const ObtenerRespuesta = () =>{
@@ -136,22 +165,25 @@ const ObtenerRespuesta = () =>{
     let respuestaCorrecta = 0;
     respuestaFinal.forEach((intervalo,index)=>{
         if(intervalo==''){
-            console.log('Falta el intervalo '+(index+1));
             bandera = bandera+1
         }
     })
-    if(bandera == 0){
-        intervalos.forEach((element,index) => {
-        if(element != respuestaFinal[index]){
-            console.log("Algo salio mal con el intervalo: "+(index+1));
-            respuestaCorrecta = respuestaCorrecta+1;
-        }
-    });
-    }else{
-        console.log('faltan intervalos');
-        respuestaCorrecta = respuestaCorrecta+1;
-    }
-    if(respuestaCorrecta == 0){
-        console.log('Respuesta Correcta')
-    }
+        respuestaFinal.forEach((intervalo,index)=>{
+            if(intervalo==intervalos[index]){
+                const respuestaHTML = document.getElementById(grados[index]);
+                respuestaHTML.innerHTML = `<span class="textAnsers">${intervalo}</span>`;
+                if(respuestaHTML.parentElement.classList.contains('wrongAnswer')){
+                    respuestaHTML.parentElement.classList.toggle('wrongAnswer')
+                }
+                respuestaHTML.parentElement.classList.add('correctAnswer')
+            }else{
+                const respuestaHTML = document.getElementById(grados[index]);
+                respuestaHTML.innerHTML = `<span class="textAnsers">${intervalo}</span>`;
+                if(respuestaHTML.parentElement.classList.contains('correctAnswer')){
+                    respuestaHTML.parentElement.classList.toggle('correctAnswer')
+                }
+                respuestaHTML.parentElement.classList.add('wrongAnswer')
+
+            }
+        })
 }
