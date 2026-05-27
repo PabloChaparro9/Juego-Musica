@@ -32,7 +32,9 @@ const CambiarGrado = (a,n) =>{
     respuestaFinal[n] = nota;
     const CambiarAcordeHTML = document.getElementById(b);
     CambiarAcordeHTML.innerHTML = nota;
+    ComprobarEstadoBoton()
 }
+
 const DefinirNota = (a) => {
     switch (a) {
         case 'Im':
@@ -131,44 +133,7 @@ const DetectarIntervalo = (c) =>{
             break;
     }
 }
-const ComprobarIntervalo = (c) =>{
-    switch (c) {
-        case intervalos[0]:
-            return 'gradoI'
-            break;
-        case intervalos[1]:
-            return 'gradoII'
-            break;
-        case intervalos[2]:
-            return 'gradoIII'
-            break;
-        case intervalos[3]:
-            return 'gradoIV'
-            break;
-        case intervalos[4]:
-            return 'gradoV'
-            break;
-        case intervalos[5]:
-            return 'gradoVI'
-            break;
-        case intervalos[6]:
-            return 'gradoVII'
-            break;
-    
-        default:
-            break;
-    }
-}
-//Recordar agregar notas para continuar el trabajo donde quedo.
-/* Las respuestas se deben escribir en las etiquetas div que tienen como id chordX reemplazando su innerHTML con un span con clase textAnswer para aplicar el estilo y el acorde correspondiente. Si las respuestas son correctas se agregara la clase correctAnswer y si son incorrectas wrongAnswer para aplicar estilos diferentes. Se debe imprimir el intervalo en la card respuesta.*/
 const ObtenerRespuesta = () =>{
-    let bandera = 0;
-    let respuestaCorrecta = 0;
-    respuestaFinal.forEach((intervalo,index)=>{
-        if(intervalo==''){
-            bandera = bandera+1
-        }
-    })
     respuestaFinal.forEach((intervalo,index)=>{
         if(respuestaFinal[index]==''){
             const respuestaHTML = document.getElementById(grados[index]);
@@ -195,4 +160,18 @@ const ObtenerRespuesta = () =>{
             }
         }
     })
+    document.getElementById('comprobarRespuesta').disabled=true;
+}
+const ComprobarEstadoBoton = () =>{
+    let flag = 0;
+    respuestaFinal.forEach((intervalo)=>{
+        if(intervalo==''){
+            flag=flag+1;
+        }
+    })
+    if(flag!=0){
+        document.getElementById('comprobarRespuesta').disabled=true;
+    }else{
+        document.getElementById('comprobarRespuesta').disabled=false;
+    }
 }
