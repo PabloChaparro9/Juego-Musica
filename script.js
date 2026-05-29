@@ -13,7 +13,7 @@ const obtenerEscala = (tipoEscala,a) =>{
             intervalos[index]=intervalo;
         })
     }
-    document.getElementById(idGrados[0]).firstChild.innerHTML=intervalos[0];
+    
     ActualizarBotones(seleccionHTML);
 }
 fetch('./escalas.json')
