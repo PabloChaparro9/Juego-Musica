@@ -2,7 +2,7 @@ const SelectEscalaHTML = document.getElementById("selectEscala");
 const NotaAcordeHTML = document.getElementById("notaAcorde");
 let intervalos = ['C','D','E','F','G','A','B'];
 let respuestaFinal = [intervalos[0],'','','','','','']
-let idGrados= ['chordI','chordII','chordIII','chordIV','chordV','chordVI','chordVII'];
+const idGrados= ['chordI','chordII','chordIII','chordIV','chordV','chordVI','chordVII'];
 let tipoEscala = "Escala Mayor";
 let notasAcordes = "Notas";
 fetch('./escalas.json')
@@ -10,14 +10,12 @@ fetch('./escalas.json')
     .then(data=>{
         const indexEscala = Math.floor(Math.random()*8);
         obtenerEscala(data[indexEscala].Tipo,data[indexEscala].Intervalos);
-        console.dir(data[indexEscala])
     })
 document.getElementById(idGrados[0]).firstChild.innerHTML=intervalos[0];
 const obtenerEscala = (tipoEscala,a) =>{
     if(tipoEscala == "Escala Mayor"){
         a.forEach((intervalo,index)=>{
             intervalos[index]=intervalo;
-            console.log(intervalo)
         })
     }
 }
@@ -49,59 +47,60 @@ const CambiarGrado = (a,n) =>{
     CambiarAcordeHTML.innerHTML = nota;
     ComprobarEstadoBoton()
 }
-const actualizarBotones = (a,b) =>{
-    document.getElementById(a).innerHTML=b;
-    console.log(b.slice(0,1));
-    console.log(b.slice(1,2));
-    if(b.slice(1,2)=='#'){
+const ActualizarIntervalo = (a,b) =>{
+    if(a.slice(-1)=='m' && b.slice(-1)=='#'){
         return b.slice(0,1)
-    }else{
-        return b
+    }else if(a.slice(-1)=='m' && b.slice(1,2)=='b'){
+        return b.slice(0,2)
+    }else if(a.slice(-1)=='M' && b.slice(1,2)=='b'){
+        return b.slice(0,1)
+    }else {
+        return b.slice(0,2)
     }
 }
 const DefinirNota = (a) => {
     switch (a) {
         case 'Im':
-            return actualizarBotones('Im',intervalos[0])
+            return ActualizarIntervalo('Im',intervalos[0])
             break;
         case 'IM':
-            return actualizarBotones('IM',intervalos[0]+'#')
+            return ActualizarIntervalo('IM',intervalos[0]+'#')
             break;
         case 'IIm':
-            return actualizarBotones('IIm',intervalos[1])
+            return ActualizarIntervalo('IIm',intervalos[1])
             break;
         case 'IIM':
-            return actualizarBotones('IIM',intervalos[1]+'#')
+            return ActualizarIntervalo('IIM',intervalos[1]+'#')
             break;
         case 'IIIm':
-            return actualizarBotones('IIIm',intervalos[2])
+            return ActualizarIntervalo('IIIm',intervalos[2])
             break;
         case 'IIIM':
-            return actualizarBotones('IIIM',intervalos[2]+'#')
+            return ActualizarIntervalo('IIIM',intervalos[2]+'#')
             break;
         case 'IVm':
-            return actualizarBotones('IVm',intervalos[3])
+            return ActualizarIntervalo('IVm',intervalos[3])
             break;
         case 'IVM':
-            return actualizarBotones('IVM',intervalos[3]+'#')
+            return ActualizarIntervalo('IVM',intervalos[3]+'#')
             break;
         case 'Vm':
-            return actualizarBotones('Vm',intervalos[4])
+            return ActualizarIntervalo('Vm',intervalos[4])
             break;
         case 'VM':
-            return actualizarBotones('VM',intervalos[4]+'#')
+            return ActualizarIntervalo('VM',intervalos[4]+'#')
             break;
         case 'VIm':
-            return actualizarBotones('VIm',intervalos[5])
+            return ActualizarIntervalo('VIm',intervalos[5])
             break;
         case 'VIM':
-            return actualizarBotones('VIM',intervalos[5]+'#')
+            return ActualizarIntervalo('VIM',intervalos[5]+'#')
             break;
         case 'VIIm':
-            return actualizarBotones('VIIm',intervalos[6])
+            return ActualizarIntervalo('VIIm',intervalos[6])
             break;
         case 'VIIM':
-            return actualizarBotones('VIIM',intervalos[6]+'#')
+            return ActualizarIntervalo('VIIM',intervalos[6]+'#')
             break;
     
         default:
