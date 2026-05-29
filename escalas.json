@@ -2,89 +2,102 @@
     {
         "Nombre":"DO",
         "Tipo":"Escala Mayor",
-        "I":"C",
-        "II":"D",
-        "III":"E",
-        "IV":"F",
-        "V":"G",
-        "VI":"A",
-        "VII":"B"
+        "Intervalos":[
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "A",
+            "B"
+        ],
+        "acordes":[
+            "C",
+            "Rm",
+            "Em",
+            "F",
+            "G",
+            "Am",
+            "B°"
+        ]
     },
     {
         "Nombre":"RE",
         "Tipo":"Escala Mayor",
-        "I":"D",
-        "II":"E",
-        "III":"F#",
-        "IV":"G",
-        "V":"A",
-        "VI":"B",
-        "VII":"C#"
+        "Intervalos":[
+            "D",
+            "E",
+            "F#",
+            "G",
+            "A",
+            "B",
+            "C#"
+        ]
     },
     {
         "Nombre":"MI",
         "Tipo":"Escala Mayor",
-        "I":"E",
-        "II":"F#",
-        "III":"G#",
-        "IV":"A",
-        "V":"B",
-        "VI":"C#",
-        "VII":"D#"
+        "Intervalos":["E",
+        "F#",
+        "G#",
+        "A",
+        "B",
+        "C#",
+        "D#"]
     },
     {
         "Nombre":"FA",
         "Tipo":"Escala Mayor",
-        "I":"F",
-        "II":"G",
-        "III":"A",
-        "IV":"Bb",
-        "V":"C",
-        "VI":"D",
-        "VII":"E"
+        "Intervalos":["F",
+        "G",
+        "A",
+        "Bb",
+        "C",
+        "D",
+        "E"]
     },
     {
         "Nombre":"SOL",
         "Tipo":"Escala Mayor",
-        "I":"G",
-        "II":"A",
-        "III":"B",
-        "IV":"C",
-        "V":"D",
-        "VI":"E",
-        "VII":"F#"
+        "Intervalos":["G",
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F#"]
     },
     {
         "Nombre":"LA",
         "Tipo":"Escala Mayor",
-        "I":"A",
-        "II":"B",
-        "III":"C#",
-        "IV":"D",
-        "V":"E",
-        "VI":"F#",
-        "VII":"G#"
+        "Intervalos":["A",
+        "B",
+        "C#",
+        "D",
+        "E",
+        "F#",
+        "G#"]
     },
     {
         "Nombre":"SI",
         "Tipo":"Escala Mayor",
-        "I":"B",
-        "II":"C#",
-        "III":"D#",
-        "IV":"E",
-        "V":"F#",
-        "VI":"G#",
-        "VII":"A#"
+        "Intervalos":["B",
+        "C#",
+        "D#",
+        "E",
+        "F#",
+        "G#",
+        "A#"]
     },
     {
         "Nombre":"RE",
         "Tipo":"Escala Menor",
-        "I":"C",
-        "II":"D",
-        "III":"Eb",
-        "IV":"F",
-        "V":"G",
-        "VI":"Ab",
-        "VII":"Bb"
+        "Intervalos":["C",
+        "D",
+        "Eb",
+        "F",
+        "G",
+        "Ab",
+        "Bb"]
     }
 ]

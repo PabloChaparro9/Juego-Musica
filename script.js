@@ -2,10 +2,25 @@ const SelectEscalaHTML = document.getElementById("selectEscala");
 const NotaAcordeHTML = document.getElementById("notaAcorde");
 let intervalos = ['C','D','E','F','G','A','B'];
 let respuestaFinal = [intervalos[0],'','','','','','']
-let grados= ['chordI','chordII','chordIII','chordIV','chordV','chordVI','chordVII'];
+let idGrados= ['chordI','chordII','chordIII','chordIV','chordV','chordVI','chordVII'];
 let tipoEscala = "Escala Mayor";
 let notasAcordes = "Notas";
-document.getElementById(grados[0]).firstChild.innerHTML=intervalos[0];
+fetch('./escalas.json')
+    .then(response => response.json())
+    .then(data=>{
+        const indexEscala = Math.floor(Math.random()*8);
+        obtenerEscala(data[indexEscala].Tipo,data[indexEscala].Intervalos);
+        console.dir(data[indexEscala])
+    })
+document.getElementById(idGrados[0]).firstChild.innerHTML=intervalos[0];
+const obtenerEscala = (tipoEscala,a) =>{
+    if(tipoEscala == "Escala Mayor"){
+        a.forEach((intervalo,index)=>{
+            intervalos[index]=intervalo;
+            console.log(intervalo)
+        })
+    }
+}
 const CambiarEscala = () => {
     if(SelectEscalaHTML.innerHTML=="Escala Mayor"){
         SelectEscalaHTML.innerHTML = "Escala Menor";
@@ -34,50 +49,59 @@ const CambiarGrado = (a,n) =>{
     CambiarAcordeHTML.innerHTML = nota;
     ComprobarEstadoBoton()
 }
-
+const actualizarBotones = (a,b) =>{
+    document.getElementById(a).innerHTML=b;
+    console.log(b.slice(0,1));
+    console.log(b.slice(1,2));
+    if(b.slice(1,2)=='#'){
+        return b.slice(0,1)
+    }else{
+        return b
+    }
+}
 const DefinirNota = (a) => {
     switch (a) {
         case 'Im':
-            return intervalos[0]
+            return actualizarBotones('Im',intervalos[0])
             break;
         case 'IM':
-            return intervalos[0]+'#'
+            return actualizarBotones('IM',intervalos[0]+'#')
             break;
         case 'IIm':
-            return intervalos[1]
+            return actualizarBotones('IIm',intervalos[1])
             break;
         case 'IIM':
-            return intervalos[1]+'#'
+            return actualizarBotones('IIM',intervalos[1]+'#')
             break;
         case 'IIIm':
-            return intervalos[2]
+            return actualizarBotones('IIIm',intervalos[2])
             break;
         case 'IIIM':
-            return intervalos[2]+'#'
+            return actualizarBotones('IIIM',intervalos[2]+'#')
             break;
         case 'IVm':
-            return intervalos[3]
+            return actualizarBotones('IVm',intervalos[3])
             break;
         case 'IVM':
-            return intervalos[3]+'#'
+            return actualizarBotones('IVM',intervalos[3]+'#')
             break;
         case 'Vm':
-            return intervalos[4]
+            return actualizarBotones('Vm',intervalos[4])
             break;
         case 'VM':
-            return intervalos[4]+'#'
+            return actualizarBotones('VM',intervalos[4]+'#')
             break;
         case 'VIm':
-            return intervalos[5]
+            return actualizarBotones('VIm',intervalos[5])
             break;
         case 'VIM':
-            return intervalos[5]+'#'
+            return actualizarBotones('VIM',intervalos[5]+'#')
             break;
         case 'VIIm':
-            return intervalos[6]
+            return actualizarBotones('VIIm',intervalos[6])
             break;
         case 'VIIM':
-            return intervalos[6]+'#'
+            return actualizarBotones('VIIM',intervalos[6]+'#')
             break;
     
         default:
@@ -136,7 +160,7 @@ const DetectarIntervalo = (c) =>{
 const ObtenerRespuesta = () =>{
     respuestaFinal.forEach((intervalo,index)=>{
         if(respuestaFinal[index]==''){
-            const respuestaHTML = document.getElementById(grados[index]);
+            const respuestaHTML = document.getElementById(idGrados[index]);
             respuestaHTML.innerHTML = `<span class="textAnsers">X</span>`;
             if(respuestaHTML.parentElement.classList.contains('correctAnswer')){
                 respuestaHTML.parentElement.classList.toggle('correctAnswer')
@@ -144,14 +168,14 @@ const ObtenerRespuesta = () =>{
             respuestaHTML.parentElement.classList.add('wrongAnswer')
         }else{
             if(intervalo==intervalos[index]){
-                const respuestaHTML = document.getElementById(grados[index]);
+                const respuestaHTML = document.getElementById(idGrados[index]);
                 respuestaHTML.innerHTML = `<span class="textAnsers">${intervalo}</span>`;
                 if(respuestaHTML.parentElement.classList.contains('wrongAnswer')){
                     respuestaHTML.parentElement.classList.toggle('wrongAnswer')
                 }
                 respuestaHTML.parentElement.classList.add('correctAnswer')
             }else{
-                const respuestaHTML = document.getElementById(grados[index]);
+                const respuestaHTML = document.getElementById(idGrados[index]);
                 respuestaHTML.innerHTML = `<span class="textAnsers">${intervalo}</span>`;
                 if(respuestaHTML.parentElement.classList.contains('correctAnswer')){
                     respuestaHTML.parentElement.classList.toggle('correctAnswer')
