@@ -1,27 +1,36 @@
 const SelectEscalaHTML = document.getElementById("selectEscala");
 const NotaAcordeHTML = document.getElementById("notaAcorde");
 let intervalos = ['C','D','E','F','G','A','B'];
-let respuestaFinal = [intervalos[0],'','','','','','']
+let respuestaFinal = ['','','','','','',''];
 const idGrados= ['chordI','chordII','chordIII','chordIV','chordV','chordVI','chordVII'];
 let tipoEscala = "Escala Mayor";
 let notasAcordes = "Notas";
 const seleccionHTML = document.querySelectorAll('.chordOptionContainer')
-console.dir(seleccionHTML);
-const obtenerEscala = (tipoEscala,a) =>{
-    if(tipoEscala == "Escala Mayor"){
+const obtenerEscala = (a) =>{
+    
         a.forEach((intervalo,index)=>{
             intervalos[index]=intervalo;
         })
-    }
-    
     ActualizarBotones(seleccionHTML);
 }
-fetch('./escalas.json')
-    .then(response => response.json())
-    .then(data=>{
-        const indexEscala = Math.floor(Math.random()*8);
-        obtenerEscala(data[indexEscala].Tipo,data[indexEscala].Intervalos);
-    })
+const generarEscala = (a)=>{
+    let min, max;
+    if(a=='Escala Mayor'){
+        min= 0;
+        max= 7;
+    }else{
+        min=7;
+        max=14;
+    }
+    fetch('./escalas.json')
+        .then(response => response.json())
+        .then(data=>{
+            const indexEscala = Math.floor(Math.random()*(max - min) + min);
+            obtenerEscala(data[indexEscala].Intervalos);
+            document.getElementById('escala').innerHTML='Escala de '+data[indexEscala].Nombre
+        })
+}
+generarEscala(tipoEscala)
 const CambiarEscala = () => {
     if(SelectEscalaHTML.innerHTML=="Escala Mayor"){
         SelectEscalaHTML.innerHTML = "Escala Menor";
@@ -205,6 +214,4 @@ const ActualizarBotones = (a) =>{
     a.forEach((elemento,index)=>{
         return elemento.innerHTML=DefinirNota(elemento.id,parseInt(index/2))
     })
-        document.getElementById('gradoI').innerHTML=intervalos[0];
-
 }

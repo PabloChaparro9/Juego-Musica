@@ -30,6 +30,14 @@ button{
     height: 195px;
     margin: 50px 2% 50px 2%;
 }
+.titulo{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.escala{
+    font-weight: bold;
+}
 .menu{
     display: flex;
     justify-content: space-between;
